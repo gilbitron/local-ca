@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Load correct autoloader depending on install location.
+ */
+if (file_exists(__DIR__.'/../vendor/autoload.php')) {
+    require __DIR__.'/../vendor/autoload.php';
+} elseif (file_exists(__DIR__.'/../../../autoload.php')) {
+    require __DIR__.'/../../../autoload.php';
+} else {
+    require getenv('HOME').'/.composer/vendor/autoload.php';
+}
+
+use Symfony\Component\Console\Application;
+
+define('LOCALCA_HOME_PATH', posix_getpwuid(fileowner(__FILE__))['dir'].'/.config/local-ca');
+
+$container = new League\Container\Container;
+$container->delegate(new League\Container\ReflectionContainer);
+
+$application = new Application('Local CA', '0.1.0');
+
+$application->add($container->get(LocalCA\Command\InstallCommand::class));
+$application->add($container->get(LocalCA\Command\NewCommand::class));
+
+$application->run();

@@ -1,0 +1,32 @@
+{
+    "name": "gilbitron/local-ca",
+    "description": "A simple tool to create locally trusted development certificates",
+    "license": "MIT",
+    "bin": ["bin/local-ca"],
+    "authors": [
+        {
+            "name": "Gilbert Pellegrom",
+            "email": "gilbert@pellegrom.me"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "ext-openssl": "*",
+        "symfony/console": "^5.1",
+        "symfony/process": "^5.1",
+        "league/container": "^3.3"
+    },
+    "autoload": {
+        "files": [
+            "helpers.php"
+        ],
+        "psr-4": {
+            "LocalCA\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
