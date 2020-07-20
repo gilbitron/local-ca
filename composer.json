@@ -16,6 +16,9 @@
         "symfony/process": "^5.1",
         "league/container": "^3.3"
     },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.4"
+    },
     "autoload": {
         "files": [
             "helpers.php"
@@ -23,6 +26,12 @@
         "psr-4": {
             "LocalCA\\": "src/"
         }
+    },
+    "scripts": {
+        "bin": "echo 'bin not installed'",
+        "post-install-cmd": ["@composer bin all install --ansi"],
+        "post-update-cmd": ["@composer bin all update --ansi"],
+        "build": "./vendor/bin/box compile"
     },
     "config": {
         "sort-packages": true
