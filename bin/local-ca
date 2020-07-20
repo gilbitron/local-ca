@@ -19,7 +19,7 @@ define('LOCALCA_HOME_PATH', $_SERVER['HOME'].'/.config/local-ca');
 $container = new League\Container\Container;
 $container->delegate(new League\Container\ReflectionContainer);
 
-$application = new Application('Local CA', '0.1.0');
+$application = new Application('Local CA', '@git@');
 
 $application->add($container->get(LocalCA\Command\InstallCommand::class));
 $application->add($container->get(LocalCA\Command\NewCommand::class));
