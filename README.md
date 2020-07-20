@@ -10,6 +10,28 @@ Local CA is a simple command line tool to create locally trusted certificates fo
 
 ## Installation
 
+### Download PHAR Binary
+
+Download the latest PHAR file from the [releases page](https://github.com/gilbitron/local-ca/releases):
+
+```
+wget -q https://github.com/gilbitron/local-ca/releases/download/0.2.0/local-ca.phar
+```
+
+Then, make the PHAR file executable:
+
+```
+chmod +x local-ca.phar
+```
+
+You can now either use the PHAR by running `local-ca.phar`, or you can install it globally:
+
+```
+mv local-ca.phar /usr/local/bin/local-ca
+```
+
+### Composer Global Install
+
 Install Local CA globally using composer:
 
 ```
